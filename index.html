@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>stage one</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+   <div class="inner_container">
+    <div class="wrapper">
+      <h1 data-testid="slackUserName">
+        Jacinta
+      </h1>
+      <img src="./asset/profile_pic.jpeg" alt="Jacinta" data-testid="slackDisplayImage" class="profile_pic">
+      
+      
+
+      <div id="utc-time" data-testid="currentDayOfTheWeek" data-testid="currentUTCTime">Loading...</div>
+      <p data-testid="myTrack">
+        Learning track: Frontend
+      </p>
+    </div>
+      
+    
+
+    
+   
+   <script>
+     function updateUTCTime() {
+       const utcTimeElement = document.getElementById('utc-time');
+       const currentUTC = new Date().toUTCString();
+       utcTimeElement.textContent = currentUTC;
+     }
+ 
+     // Update the UTC time every second (1000 milliseconds)
+     setInterval(updateUTCTime, 1000);
+ 
+     // Call the function immediately to display the time without delay
+     updateUTCTime();
+   </script>
+</body>
+</html>

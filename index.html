@@ -9,13 +9,14 @@
 <body>
    <div class="inner_container">
     <div class="wrapper">
-      <img src="./asset/profile_pic.jpeg" alt="Jacinta" data-testid="slackDisplayImage" class="profile_pic">
+     <img src="./asset/profile_pic.jpeg" alt="Jacinta" data-testid="slackDisplayImage" class="profile_pic">
       <h1 data-testid="slackUserName">
-        Jacinta
+        Jacinta Favour Ugwu
       </h1>
       
 
-      <div id="utc-time" data-testid="currentDayOfTheWeek" data-testid="currentUTCTime">Loading...</div>
+      <div id="utc-day" data-testid="currentDayOfTheWeek"></div>
+      <div id="utc-time"  data-testid="currentUTCTime"></div>
       <p data-testid="myTrack">
         Learning track: Frontend
       </p>
@@ -32,9 +33,13 @@
    
    <script>
      function updateUTCTime() {
+       const daysOftheweek =['Sunday','Monday','Tuesday','Wednesday','Thurday','Friday','saturday']
+       const utcdayTimeElement = document.getElementById('utc-day');
        const utcTimeElement = document.getElementById('utc-time');
-       const currentUTC = new Date().toUTCString();
-       utcTimeElement.textContent = currentUTC;
+       const currentUtcday = new Date().getDay();
+       const currentUtctime= new Date().getTime();
+       utcdayTimeElement.innerHTML = daysOftheweek[currentUtcday];
+       utcTimeElement.textContent = currentUtctime;
      }
  
      // Update the UTC time every second (1000 milliseconds)
